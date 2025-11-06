@@ -1,6 +1,34 @@
+# Dependencies
+/vendor/
+composer.phar
+
+# Project assets and exceptions
 assets/*
 !assets/.gitignore
+
+# Protected/runtime exceptions
 protected/runtime/*
 !protected/runtime/.gitignore
+
+# Database files
 protected/data/*.db
+
+# Theme views (no subir)
 themes/classic/views/
+
+# Node modules
+/node_modules/
+
+# Editor/IDE configs
+/.idea/
+/.vscode/
+
+# Env, logs and temporary files
+.env
+*.log
+*.local.php
+*.cache
+
+# OS files
+.DS_Store
+Thumbs.db
