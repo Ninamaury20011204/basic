@@ -1,29 +1,23 @@
-# Dependencies
-/vendor/
+# Composer dependencies
+vendor/
 composer.phar
 
-# Project assets and exceptions
-assets/*
+# Yii2 runtime and cache
+runtime/
+web/assets/
+assets/
 !assets/.gitignore
+!runtime/.gitignore
+!web/assets/.gitignore
 
-# Protected/runtime exceptions
-protected/runtime/*
-!protected/runtime/.gitignore
+# User uploads (portadas, etc)
+web/portadas/
 
-# Database files
-protected/data/*.db
+# IDE/editor configs
+.idea/
+.vscode/
 
-# Theme views (no subir)
-themes/classic/views/
-
-# Node modules
-/node_modules/
-
-# Editor/IDE configs
-/.idea/
-/.vscode/
-
-# Env, logs and temporary files
+# Env, logs and temp files
 .env
 *.log
 *.local.php
@@ -32,3 +26,14 @@ themes/classic/views/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Node modules (if any)
+node_modules/
+
+# Test output
+tests/_output/
+!tests/_output/.gitignore
+
+# Vagrant
+vagrant/config/*.yml
+vagrant/nginx/log/

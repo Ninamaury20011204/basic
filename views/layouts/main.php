@@ -45,23 +45,18 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 // ['label' => 'Sobre nosotros', 'url' => ['/site/about']],
                 // ['label' => 'Contacto', 'url' => ['/site/contact']],
                 // ['label' => 'Actores', 'url' => ['/actores/index']],
-                [
-                    'label' => 'Gestionar Peliculas',
-                    'items' => [
-                        ['label' => 'Actores', 'url' => ['/actores/index']],
-                        ['label' => 'Peliculas', 'url' => ['/peliculas/index']],
-                        ['label' => 'Generos', 'url' => ['/generos/index']],
-                        ['label' => 'Directores', 'url' => ['/directores/index']],
-                        // CÓDIGO CORREGIDO PARA LA LÍNEA 55
-                        Yii::$app->user->isGuest
-                        ? ''
-                        : (Yii::$app->user->identity->role != 'admin'
-                            ? ''
-                            : ['label' => 'User', 'url' => ['/user/index']]
-                        )
-                    ],
-                ],
-                Yii::$app->user->isGuest ? '' : ['label' => 'Cambiar password', 'url' => ['/user/change-password']],
+                Yii::$app->user->isGuest ? '' : (
+                    Yii::$app->user->identity->role === 'admin' ? [
+                        'label' => 'Gestionar Peliculas',
+                        'items' => [
+                            ['label' => 'Actores', 'url' => ['/actores/index']],
+                            ['label' => 'Peliculas', 'url' => ['/peliculas/index']],
+                            ['label' => 'Generos', 'url' => ['/generos/index']],
+                            ['label' => 'Directores', 'url' => ['/directores/index']],
+                            ['label' => 'Usuarios', 'url' => ['/user/index']],
+                        ],
+                    ] : ['label' => 'Cambiar password', 'url' => ['/user/change-password']]
+                ),
                 Yii::$app->user->isGuest
                 ? ['label' => 'Iniciar sesion', 'url' => ['/site/login']]
                 : '<li class="nav-item">'
