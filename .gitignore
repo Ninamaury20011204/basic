@@ -5,7 +5,7 @@ composer.phar
 # Yii2 runtime and cache
 runtime/
 web/assets/
-assets/
+
 !assets/.gitignore
 !runtime/.gitignore
 !web/assets/.gitignore
